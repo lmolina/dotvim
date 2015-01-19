@@ -27,6 +27,9 @@ set softtabstop=2
 set shiftwidth=2        " number of spaces to use for auto indent
 set nowrap
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim Latex Suite specific configuration
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " IMPORTANT: grep will sometimes skip displaying the file name if you
 " search in a singe file. This will confuse Latex-Suite. Set your grep
 " program to alway generate a file-name.
@@ -35,6 +38,16 @@ set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_CompileRule_pdf = 'latexmk -pdf -f $*'
+
+" While pressing F7 promp the following commands
+let g:Tex_PromptedCommands = 'textit,textbf,section,subsection'
+
+" Fix a problem with the é in vim-latexsuite
+imap <buffer> <leader>it <Plug>Tex_InsertItemOnThisLine
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "set t_Co=256
 "colorscheme zenburn
@@ -46,10 +59,7 @@ set hlsearch
 " Remove the annoying beep
 set visualbell
 
-" Fix a problem with the é in vim-latexsuite
-imap <buffer> <leader>it <Plug>Tex_InsertItemOnThisLine
-
-" Move to the next line in long wrapped lines
+" Use j and k to move arround long wrapped lines
 map j gj
 map k gk
 
