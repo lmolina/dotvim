@@ -40,7 +40,7 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_CompileRule_pdf = 'latexmk -pdf -f $*'
 
 " While pressing F7 promp the following commands
-let g:Tex_PromptedCommands = 'textit,textbf,section,subsection'
+let g:Tex_PromptedCommands = 'textit,textbf,url,gls'
 
 " Fix a problem with the é in vim-latexsuite
 imap <buffer> <leader>it <Plug>Tex_InsertItemOnThisLine
