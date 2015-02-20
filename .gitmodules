@@ -22,3 +22,6 @@
 [submodule "/home/lmolina/.vim/bundle/vim-airline"]
 	path = /home/lmolina/.vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline
+[submodule "bundle/vim-latex"]
+	path = bundle/vim-latex
+	url = git@github.com:vim-latex/vim-latex.git
