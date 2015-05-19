@@ -52,6 +52,7 @@ imap <buffer> <leader>it <Plug>Tex_InsertItemOnThisLine
 "set t_Co=256
 "colorscheme zenburn
 "colorscheme zellner
+colorscheme solarized
 
 " Resaltar resultados de busquedas
 set hlsearch
