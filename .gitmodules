@@ -1,18 +1,18 @@
 [submodule "bundle/fugitiv"]
 	path = bundle/fugitive
-	url = http://github.com/tpope/vim-fugitive.git
+	url = git@github.com/tpope/vim-fugitive.git
 [submodule "bundle/pathogen"]
 	path = bundle/vim-pathogen/
-	url = http://github.com/tpope/vim-pathogen
+	url = git@github.com/tpope/vim-pathogen
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter.git
+	url = git@github.com/scrooloose/nerdcommenter.git
 [submodule "bundle/vim-sensible"]
 	path = bundle/vim-sensible
-	url = git://github.com/tpope/vim-sensible.git
+	url = git@github.com/tpope/vim-sensible.git
 [submodule "bundle/vim-pathogen"]
 	path = bundle/vim-pathogen
-	url = http://github.com/tpope/vim-pathogen
+	url = git@github.com/tpope/vim-pathogen
 [submodule "bundle/taglist.vim"]
 	path = bundle/taglist.vim
 	url = git@github.com:vim-scripts/taglist.vim.git
@@ -21,10 +21,10 @@
 	url = git@github.com:msanders/snipmate.vim.git
 [submodule "/home/lmolina/.vim/bundle/vim-airline"]
 	path = /home/lmolina/.vim/bundle/vim-airline
-	url = https://github.com/bling/vim-airline
+	url = git@github.com/bling/vim-airline
 [submodule "bundle/vim-latex"]
 	path = bundle/vim-latex
 	url = git@github.com:vim-latex/vim-latex.git
 [submodule "bundle/vim-colors-solarized"]
 	path = bundle/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
+	url = git@github.com/altercation/vim-colors-solarized.git
