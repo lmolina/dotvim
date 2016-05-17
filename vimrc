@@ -14,13 +14,16 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-latex/vim-latex'
 
+" Autocompletion
+"Plugin 'Valloric/YouCompleteMe'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 let mapleader = ","
 
-set background=dark
+"set background=dark
 
 set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
@@ -124,3 +127,20 @@ endfunction
 nmap <silent> <leader>dl :call DiffToggle(1)<cr>
 nmap <silent> <leader>dc :call DiffToggle(2)<cr>
 nmap <silent> <leader>dr :call DiffToggle(3)<cr>
+
+" ------------------------------------------
+" UI tweks 
+
+" Split new window below!
+set splitbelow
+
+" Split new windows on the right
+set splitright
+
+" Use <C-JKLH> to move between windows
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" ------------------------------------------
