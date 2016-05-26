@@ -23,8 +23,6 @@ filetype plugin indent on    " required
 
 let mapleader = ","
 
-set background=dark
-
 set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
@@ -38,11 +36,13 @@ nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 " configure editor with tabs and nice stuff...
 " --------------------------------------------------------------------------------
 set expandtab           " enter spaces when tab is pressed
-set textwidth=77       " break lines when line length increases
+set textwidth=77        " break lines when line length increases
 set tabstop=2           " use 2 spaces to represent tab
 set softtabstop=2
 set shiftwidth=2        " number of spaces to use for auto indent
 set nowrap
+set colorcolumn=+0      " Higlight a vertical line at textwidth+0
+"highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim Latex Suite specific configuration
@@ -66,10 +66,12 @@ imap <buffer> <leader>it <Plug>Tex_InsertItemOnThisLine
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set t_Co=16
+set t_Co=256
+set background=dark
+colorscheme solarized
+
 "colorscheme zenburn
 "colorscheme zellner
-colorscheme solarized
 
 " Resaltar resultados de busquedas
 set hlsearch
