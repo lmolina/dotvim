@@ -23,7 +23,7 @@ filetype plugin indent on    " required
 
 let mapleader = ","
 
-"set background=dark
+set background=dark
 
 set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
@@ -129,7 +129,7 @@ nmap <silent> <leader>dc :call DiffToggle(2)<cr>
 nmap <silent> <leader>dr :call DiffToggle(3)<cr>
 
 " ------------------------------------------
-" UI tweks 
+" UI tweaks 
 
 " Split new window below!
 set splitbelow
