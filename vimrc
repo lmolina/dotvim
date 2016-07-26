@@ -14,6 +14,26 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-latex/vim-latex'
 
+" File browser
+Plugin 'scrooloose/nerdtree'
+" ... with ctrl+p + fussy search
+Plugin 'kien/ctrlp.vim'
+
+" Better python indentation
+Plugin 'vim-scripts/indentpython.vim'
+
+" Better folding
+Plugin 'tmhedberg/SimpylFold'
+
+" Highlight and remove eol whitespace
+Plugin 'bitc/vim-bad-whitespace'
+
+" Syntax check and Highlighting
+Plugin 'scrooloose/syntastic'
+
+" Python check!
+Plugin 'nvie/vim-flake8'
+
 " Autocompletion
 "Plugin 'Valloric/YouCompleteMe'
 
@@ -66,8 +86,8 @@ imap <buffer> <leader>it <Plug>Tex_InsertItemOnThisLine
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set t_Co=256
-set background=dark
+"set t_Co=256
+"set background=dark
 colorscheme solarized
 
 "colorscheme zenburn
@@ -140,9 +160,56 @@ set splitbelow
 set splitright
 
 " Use <C-JKLH> to move between windows
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+"nnoremap <C-J> <C-W><C-J> "C-J is remapped by imaps (installed by latex-vim)
+"                          "to jump to the next <++>. So better to deactivate
+"                          "here to keep latex-vim happy :)
+"nnoremap <C-K> <C-W><C-K>
+"nnoremap <C-L> <C-W><C-L>
+"nnoremap <C-H> <C-W><C-H>
 
+"Docstring for folded code
+let g:SimpylFold_docstring_preview=1
+
+" ------------------------------------------
+" ------------------------------------------
+" Python IDE :)
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_python_exec = '/usr/bin/python3'
+
+" Activate / deactivate syntastyc
+nnoremap <F3> :SyntasticToggleMode<CR>
+
+"au BufNewFile,BufRead *.py
+      "\ set tabstop=4
+      "\ set softtabstop=4
+      "\ set shiftwidth=4
+      "\ set textwidth=70
+      "\ set expandtab
+      "\ set autoindent
+      "\ set fileformat=unix
+      "\ set colorcolumn=-3,-2,-1,-0
+"au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+" ------------------------------------------
+" ------------------------------------------
+
+" ------------------------------------------
+" MAC OS X + iTerm2 are having problems with UTF-8 :|
+" ------------------------------------------
+
+if has("multi_byte")
+  if &termencoding == ""
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8
+  setglobal fileencoding=utf-8
+  "setglobal bomb
+  "set fileencodings=ucs-bom,utf-8,latin1
+endif
 " ------------------------------------------
