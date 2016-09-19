@@ -87,7 +87,7 @@ imap <buffer> <leader>it <Plug>Tex_InsertItemOnThisLine
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "set t_Co=256
-"set background=dark
+set background=dark
 colorscheme solarized
 
 "colorscheme zenburn
