@@ -7,8 +7,21 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+
+Plugin 'kana/vim-operator-user'
+
+" Seveal key maps
+Plugin 'tpope/vim-unimpaired'
+
+" Basical vim configurations
 Plugin 'tpope/vim-sensible'
+
+" Interact with git inside vim
 Plugin 'tpope/vim-fugitive'
+
+" View git changes inside vim
+Plugin 'airblade/vim-gitgutter'
+
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'altercation/vim-colors-solarized'
@@ -56,7 +69,7 @@ nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 " configure editor with tabs and nice stuff...
 " --------------------------------------------------------------------------------
 set expandtab           " enter spaces when tab is pressed
-set textwidth=77        " break lines when line length increases
+set textwidth=78        " break lines when line length increases
 set tabstop=2           " use 2 spaces to represent tab
 set softtabstop=2
 set shiftwidth=2        " number of spaces to use for auto indent
@@ -86,8 +99,8 @@ imap <buffer> <leader>it <Plug>Tex_InsertItemOnThisLine
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"set t_Co=256
-"set background=dark
+set t_Co=256
+set background=dark
 colorscheme solarized
 
 "colorscheme zenburn
@@ -179,9 +192,9 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-let g:syntastic_python_python_exec = '/usr/bin/python3'
+"let g:syntastic_python_python_exec = '/usr/bin/env python3'
 
 " Activate / deactivate syntastyc
 nnoremap <F3> :SyntasticToggleMode<CR>
@@ -213,3 +226,20 @@ if has("multi_byte")
   "set fileencodings=ucs-bom,utf-8,latin1
 endif
 " ------------------------------------------
+
+let g:grammarous#hooks = {}
+function! g:grammarous#hooks.on_check(errs) abort
+    nmap <buffer>gn <Plug>(grammarous-move-to-next-error)
+    nmap <buffer>gp <Plug>(grammarous-move-to-previous-error)
+    nmap <buffer>gr <Plug>(grammarous-move-to-info-window)r
+    nmap <buffer>gf <Plug>(grammarous-move-to-info-window)f
+    nmap <buffer>gR <Plug>(grammarous-move-to-info-window)R
+endfunction
+
+function! g:grammarous#hooks.on_reset(errs) abort
+    nunmap <buffer>gn
+    nunmap <buffer>gp
+    nunmap <buffer>gr
+    nunmap <buffer>gf
+    nunmap <buffer>gR
+endfunction
