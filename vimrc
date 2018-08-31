@@ -99,7 +99,7 @@ imap <buffer> <leader>it <Plug>Tex_InsertItemOnThisLine
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set t_Co=256
+"set t_Co=256
 set background=dark
 colorscheme solarized
 
