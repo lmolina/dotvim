@@ -50,6 +50,9 @@ Plugin 'nvie/vim-flake8'
 " Autocompletion
 "Plugin 'Valloric/YouCompleteMe'
 
+" Taskwarrior interface
+Plugin 'farseer90718/vim-taskwarrior'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
