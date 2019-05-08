@@ -63,7 +63,7 @@ set smartcase		" Do smart case matching
 set mouse=a		" Enable mouse usage (all modes) in terminals
 set number
 " Toggle line numbers and fold column for easy copying:
-nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
+"nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 
 " --------------------------------------------------------------------------------
 " configure editor with tabs and nice stuff...
@@ -100,7 +100,7 @@ imap <buffer> <leader>it <Plug>Tex_InsertItemOnThisLine
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "set t_Co=256
-set background=dark
+"set background=dark
 colorscheme solarized
 
 "colorscheme zenburn
@@ -243,3 +243,6 @@ function! g:grammarous#hooks.on_reset(errs) abort
     nunmap <buffer>gf
     nunmap <buffer>gR
 endfunction
+
+" Activate and deactivate paste mode
+nnoremap <F2> :set nopaste!<CR>
