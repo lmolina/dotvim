@@ -53,6 +53,9 @@ Plugin 'nvie/vim-flake8'
 " Taskwarrior interface
 Plugin 'farseer90718/vim-taskwarrior'
 
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -249,3 +252,12 @@ endfunction
 
 " Activate and deactivate paste mode
 nnoremap <F2> :set nopaste!<CR>
+
+" Snippets configuration
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
