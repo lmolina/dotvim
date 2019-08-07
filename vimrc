@@ -25,7 +25,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'vim-latex/vim-latex'
+"Plugin 'vim-latex/vim-latex'
 
 " File browser
 Plugin 'scrooloose/nerdtree'
@@ -90,23 +90,23 @@ set colorcolumn=+0      " Higlight a vertical line at textwidth+0
 " search in a singe file. This will confuse Latex-Suite. Set your grep
 " program to alway generate a file-name.
 " http://tex.stackexchange.com/questions/32451/set-up-vim-with-latex-suite-to-use-latexmk#32759
-set grepprg=grep\ -nH\ $*
-let g:tex_flavor='latex'
-let g:Tex_DefaultTargetFormat = 'pdf'
-let g:Tex_CompileRule_pdf = 'latexmk -pdf -f $*'
+"set grepprg=grep\ -nH\ $*
+"let g:tex_flavor='latex'
+"let g:Tex_DefaultTargetFormat = 'pdf'
+"let g:Tex_CompileRule_pdf = 'latexmk -pdf -f $*'
 
-" While pressing F7 promp the following commands
-let g:Tex_PromptedCommands = 'textit,textbf,url,gls,num,SI'
+"" While pressing F7 promp the following commands
+"let g:Tex_PromptedCommands = 'textit,textbf,url,gls,num,SI'
 
-" Fix a problem with the é in vim-latexsuite
-imap <buffer> <leader>it <Plug>Tex_InsertItemOnThisLine
+"" Fix a problem with the é in vim-latexsuite
+"imap <buffer> <leader>it <Plug>Tex_InsertItemOnThisLine
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "set t_Co=256
-"set background=dark
+set background=dark
 colorscheme solarized
 
 "colorscheme zenburn
@@ -256,8 +256,8 @@ nnoremap <F2> :set nopaste!<CR>
 " Snippets configuration
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
