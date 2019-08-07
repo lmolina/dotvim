@@ -11,3 +11,7 @@ $0
 \end{tikzpicture}
 \end{document}
 endsnippet
+
+snippet modeline "Vim modeline"
+% vim`!v ':set spell spelllang=en_us '. (&expandtab ? printf('et sw=%i ts=%i', &sw, &ts) : printf('noet sts=%i sw=%i ts=%i', &sts, &sw, &ts)) . (&tw ? ' tw='. &tw : '') . ':'`
+endsnippet
