@@ -8,6 +8,11 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'lervag/vimtex'
+
+" For Latex synctex with Evince
+Plugin 'peterbjorgensen/sved'
+
 Plugin 'kana/vim-operator-user'
 
 " Seveal key maps
@@ -51,10 +56,16 @@ Plugin 'nvie/vim-flake8'
 "Plugin 'Valloric/YouCompleteMe'
 
 " Taskwarrior interface
-Plugin 'farseer90718/vim-taskwarrior'
+Plugin 'lmolina/vim-taskwarrior'
 
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+
+" Align lines around a pattern, e.g., aling columns in a table
+Plugin 'godlygeek/tabular'
+
+" A markdown plugin for vim
+Plugin 'plasticboy/vim-markdown'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -134,10 +145,10 @@ map k gk
 "set wrapmargin=0
 
 " ctags, taglist
-let Tlist_Ctags_Cmd = "/usr/bin/ctags"
+"let Tlist_Ctags_Cmd = "/usr/bin/ctags"
 "let Tlist_WinWidth = 50
-map <F4> :TlistToggle<cr>
-map <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+"map <F4> :TlistToggle<cr>
+"map <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 " Set the number of lines above the cursor
 set scrolloff=2
@@ -201,6 +212,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 "let g:syntastic_python_python_exec = '/usr/bin/env python3'
+let g:syntastic_rst_checkers=['sphinx']
 
 " Activate / deactivate syntastyc
 nnoremap <F3> :SyntasticToggleMode<CR>
@@ -255,9 +267,32 @@ nnoremap <F2> :set nopaste!<CR>
 
 " Snippets configuration
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+" YouCompleteMe
+let g:ycm_python_interpreter_path = ''
+let g:ycm_python_sys_path = []
+let g:ycm_extra_conf_vim_data = [
+  \  'g:ycm_python_interpreter_path',
+  \  'g:ycm_python_sys_path'
+  \]
+"let g:ycm_global_ycm_extra_conf = '~/.ycm_global_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/ycm_global_extra_conf.py'
+
+" -----------------------
+"  vimtex configuration
+"let g:vimtex_view_method="zathura"
+" -----------------------
+
+nmap <F4> :call SVED_Sync()<CR>
+
+"----------------
+"  Task Warrioir
+"----------------
+
+let g:task_rc_override = 'rc.defaultwidth=0'
