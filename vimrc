@@ -296,3 +296,15 @@ nmap <F4> :call SVED_Sync()<CR>
 "----------------
 
 let g:task_rc_override = 'rc.defaultwidth=0'
+
+
+" --------------
+" Set default spelllang to en_us to common textfiles
+" --------------
+
+if has("autocmd")
+    autocmd FileType markdown set spell spelllang=en_us
+    autocmd FileType tex set spell spelllang=en_us
+    autocmd FileType latex set spell spelllang=en_us
+    autocmd FileType rst set spell spelllang=en_us
+endif
