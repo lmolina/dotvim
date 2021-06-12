@@ -117,7 +117,7 @@ set colorcolumn=+0      " Higlight a vertical line at textwidth+0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "set t_Co=256
-set background=dark
+"set background=dark
 colorscheme solarized
 
 "colorscheme zenburn
@@ -308,3 +308,9 @@ if has("autocmd")
     autocmd FileType latex set spell spelllang=en_us
     autocmd FileType rst set spell spelllang=en_us
 endif
+
+if !exists('g:lasttab')
+    let g:lasttab = 1
+endif
+nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+au TabLeave * let g:lasttab = tabpagenr()
