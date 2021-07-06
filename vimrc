@@ -11,7 +11,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'lervag/vimtex'
 
 " For Latex synctex with Evince
-Plugin 'peterbjorgensen/sved'
+"Plugin 'peterbjorgensen/sved'
 
 Plugin 'kana/vim-operator-user'
 
@@ -118,6 +118,7 @@ set colorcolumn=+0      " Higlight a vertical line at textwidth+0
 
 "set t_Co=256
 "set background=dark
+set background=light
 colorscheme solarized
 
 "colorscheme zenburn
@@ -289,7 +290,7 @@ let g:ycm_global_ycm_extra_conf = '~/ycm_global_extra_conf.py'
 "let g:vimtex_view_method="zathura"
 " -----------------------
 
-nmap <F4> :call SVED_Sync()<CR>
+"nmap <F4> :call SVED_Sync()<CR>
 
 "----------------
 "  Task Warrioir
@@ -314,3 +315,15 @@ if !exists('g:lasttab')
 endif
 nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
+
+" Use Okular in vimtex as PDF viewer
+" https://github.com/lervag/vimtex/blob/1782e479a0c6a716af3a92d5ed85b65ecfad3dc0/doc/vimtex.txt
+let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+let g:vimtex_view_general_options_latexmk = '--unique'
+
+" This requires vim-gui-common. In Debian 11 vim-nox is compiled without the
+" +clientserver flag, that is required by synctex to work
+if empty(v:servername) && exists('*remote_startserver')
+	call remote_startserver('VIM')
+endif
