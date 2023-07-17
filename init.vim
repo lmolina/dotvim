@@ -1,14 +1,17 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+"Disabled durin nvim migration
+"set nocompatible              " be iMproved, required
+"Disabled durin nvim migration
+"filetype off                  " required
 
+"Disabled durin nvim migration
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'lervag/vimtex'
+"Plugin 'lervag/vimtex'
 
 " For Latex synctex with Evince
 "Plugin 'peterbjorgensen/sved'
@@ -22,20 +25,23 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-sensible'
 
 " Interact with git inside vim
-Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
 
 " View git changes inside vim
 Plugin 'airblade/vim-gitgutter'
 
 Plugin 'bling/vim-airline'
+
+" Easy and smart comment / uncomment, e.g., <leader> ci
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'altercation/vim-colors-solarized'
+
+"Plugin 'altercation/vim-colors-solarized'
 "Plugin 'vim-latex/vim-latex'
 
 " File browser
-Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdtree'
 " ... with ctrl+p + fussy search
-Plugin 'kien/ctrlp.vim'
+"Plugin 'kien/ctrlp.vim'
 
 " Better python indentation
 Plugin 'vim-scripts/indentpython.vim'
@@ -47,25 +53,25 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'bitc/vim-bad-whitespace'
 
 " Syntax check and Highlighting
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 
 " Python check!
-Plugin 'nvie/vim-flake8'
+"Plugin 'nvie/vim-flake8'
 
 " Autocompletion
 "Plugin 'Valloric/YouCompleteMe'
 
 " Taskwarrior interface
-Plugin 'lmolina/vim-taskwarrior'
+"Plugin 'lmolina/vim-taskwarrior'
 
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+"Plugin 'SirVer/ultisnips'
+"Plugin 'honza/vim-snippets'
 
 " Align lines around a pattern, e.g., aling columns in a table
-Plugin 'godlygeek/tabular'
+"Plugin 'godlygeek/tabular'
 
 " A markdown plugin for vim
-Plugin 'plasticboy/vim-markdown'
+"Plugin 'plasticboy/vim-markdown'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -117,9 +123,9 @@ set colorcolumn=+0      " Higlight a vertical line at textwidth+0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "set t_Co=256
-"set background=dark
-set background=light
-colorscheme solarized
+set background=dark
+"set background=light
+"colorscheme solarized
 
 "colorscheme zenburn
 "colorscheme zellner
@@ -204,9 +210,9 @@ let g:SimpylFold_docstring_preview=1
 " ------------------------------------------
 " ------------------------------------------
 " Python IDE :)
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -265,6 +271,9 @@ endfunction
 
 " Activate and deactivate paste mode
 nnoremap <F2> :set nopaste!<CR>
+
+" Copy and paste compatible with Windows
+set clipboard=unnamedplus
 
 " Snippets configuration
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
