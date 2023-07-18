@@ -1,7 +1,4 @@
-"Disabled durin nvim migration
-"set nocompatible              " be iMproved, required
-"Disabled durin nvim migration
-"filetype off                  " required
+lua require('init')
 
 "Disabled durin nvim migration
 " set the runtime path to include Vundle and initialize
@@ -83,7 +80,6 @@ set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
 
-set mouse=a		" Enable mouse usage (all modes) in terminals
 set number
 " Toggle line numbers and fold column for easy copying:
 "nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
@@ -129,9 +125,6 @@ set background=dark
 
 "colorscheme zenburn
 "colorscheme zellner
-
-" Resaltar resultados de busquedas
-set hlsearch
 
 " Remove the annoying beep
 set visualbell
@@ -230,44 +223,11 @@ nnoremap <F3> :SyntasticToggleMode<CR>
       "\ set shiftwidth=4
       "\ set textwidth=70
       "\ set expandtab
-      "\ set autoindent
       "\ set fileformat=unix
       "\ set colorcolumn=-3,-2,-1,-0
 "au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 " ------------------------------------------
 " ------------------------------------------
-
-" ------------------------------------------
-" MAC OS X + iTerm2 are having problems with UTF-8 :|
-" ------------------------------------------
-
-if has("multi_byte")
-  if &termencoding == ""
-    let &termencoding = &encoding
-  endif
-  set encoding=utf-8
-  setglobal fileencoding=utf-8
-  "setglobal bomb
-  "set fileencodings=ucs-bom,utf-8,latin1
-endif
-" ------------------------------------------
-
-let g:grammarous#hooks = {}
-function! g:grammarous#hooks.on_check(errs) abort
-    nmap <buffer>gn <Plug>(grammarous-move-to-next-error)
-    nmap <buffer>gp <Plug>(grammarous-move-to-previous-error)
-    nmap <buffer>gr <Plug>(grammarous-move-to-info-window)r
-    nmap <buffer>gf <Plug>(grammarous-move-to-info-window)f
-    nmap <buffer>gR <Plug>(grammarous-move-to-info-window)R
-endfunction
-
-function! g:grammarous#hooks.on_reset(errs) abort
-    nunmap <buffer>gn
-    nunmap <buffer>gp
-    nunmap <buffer>gr
-    nunmap <buffer>gf
-    nunmap <buffer>gR
-endfunction
 
 " Activate and deactivate paste mode
 nnoremap <F2> :set nopaste!<CR>
