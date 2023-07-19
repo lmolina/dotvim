@@ -29,9 +29,6 @@ Plugin 'airblade/vim-gitgutter'
 
 Plugin 'bling/vim-airline'
 
-" Easy and smart comment / uncomment, e.g., <leader> ci
-Plugin 'scrooloose/nerdcommenter'
-
 "Plugin 'altercation/vim-colors-solarized'
 "Plugin 'vim-latex/vim-latex'
 
@@ -73,8 +70,6 @@ Plugin 'bitc/vim-bad-whitespace'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-let mapleader = ","
 
 set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
