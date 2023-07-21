@@ -76,6 +76,8 @@ set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
 
 set number
+set relativenumber
+
 " Toggle line numbers and fold column for easy copying:
 "nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 
