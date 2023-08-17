@@ -2,32 +2,32 @@ lua require('init')
 
 "Disabled durin nvim migration
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin()
+"set rtp+=~/.config/nvim/bundle/Vundle.vim
+"call vundle#begin()
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+"Plugin 'VundleVim/Vundle.vim'
 
 "Plugin 'lervag/vimtex'
 
 " For Latex synctex with Evince
 "Plugin 'peterbjorgensen/sved'
 
-Plugin 'kana/vim-operator-user'
+"Plugin 'kana/vim-operator-user'
 
 " Seveal key maps
-Plugin 'tpope/vim-unimpaired'
+"Plugin 'tpope/vim-unimpaired'
 
 " Basical vim configurations
-Plugin 'tpope/vim-sensible'
+"Plugin 'tpope/vim-sensible'
 
 " Interact with git inside vim
 "Plugin 'tpope/vim-fugitive'
 
 " View git changes inside vim
-Plugin 'airblade/vim-gitgutter'
+"Plugin 'airblade/vim-gitgutter'
 
-Plugin 'bling/vim-airline'
+"Plugin 'bling/vim-airline'
 
 "Plugin 'altercation/vim-colors-solarized'
 "Plugin 'vim-latex/vim-latex'
@@ -38,13 +38,13 @@ Plugin 'bling/vim-airline'
 "Plugin 'kien/ctrlp.vim'
 
 " Better python indentation
-Plugin 'vim-scripts/indentpython.vim'
+"Plugin 'vim-scripts/indentpython.vim'
 
 " Better folding
-Plugin 'tmhedberg/SimpylFold'
+"Plugin 'tmhedberg/SimpylFold'
 
 " Highlight and remove eol whitespace
-Plugin 'bitc/vim-bad-whitespace'
+"Plugin 'bitc/vim-bad-whitespace'
 
 " Syntax check and Highlighting
 "Plugin 'scrooloose/syntastic'
@@ -68,7 +68,7 @@ Plugin 'bitc/vim-bad-whitespace'
 "Plugin 'plasticboy/vim-markdown'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+"call vundle#end()            " required
 filetype plugin indent on    " required
 
 set showmatch		" Show matching brackets.
