@@ -85,7 +85,7 @@ set relativenumber
 " configure editor with tabs and nice stuff...
 " --------------------------------------------------------------------------------
 set expandtab           " enter spaces when tab is pressed
-set textwidth=78        " break lines when line length increases
+set textwidth=100        " break lines when line length increases
 set tabstop=2           " use 2 spaces to represent tab
 set softtabstop=2
 set shiftwidth=2        " number of spaces to use for auto indent
@@ -118,8 +118,8 @@ set colorcolumn=+0      " Higlight a vertical line at textwidth+0
 "set t_Co=256
 set background=dark
 "set background=light
+colorscheme gruvbox
 "colorscheme solarized
-
 "colorscheme zenburn
 "colorscheme zellner
 
