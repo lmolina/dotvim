@@ -18,6 +18,13 @@ vim.opt.rtp:prepend(lazypath)
 -- require("lazy").setup(plugins, opts)
 require("lazy").setup({
   {
+    'numToStr/Comment.nvim',
+    opts = {
+      -- add any options here
+    },
+    lazy = false,
+  },
+  {
     "ellisonleao/gruvbox.nvim",
     priority = 1000,
   },
