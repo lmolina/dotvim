@@ -1,5 +1,8 @@
--- Make sure to set `mapleader` before lazy so your mappings are correct
-vim.g.mapleader = " "
+-- Set <space> as the leader key
+--  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -17,21 +20,27 @@ vim.opt.rtp:prepend(lazypath)
 
 -- require("lazy").setup(plugins, opts)
 require("lazy").setup({
-  {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
-    dependencies = {
-      -- LSP Support
-      {'neovim/nvim-lspconfig'},             -- Required
-      {'williamboman/mason.nvim'},           -- Optional
-      {'williamboman/mason-lspconfig.nvim'}, -- Optional
+  {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
 
-      -- Autocompletion
-      {'hrsh7th/nvim-cmp'},     -- Required
-      {'hrsh7th/cmp-nvim-lsp'}, -- Required
-      {'L3MON4D3/LuaSnip'},     -- Required
+  {'williamboman/mason.nvim'},
+  {'williamboman/mason-lspconfig.nvim'},
+
+  -- LSP Support
+  {
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      {'hrsh7th/cmp-nvim-lsp'},
+    },
+  },
+
+  -- Autocompletion
+  {
+    'hrsh7th/nvim-cmp',
+    dependencies = {
+      {'L3MON4D3/LuaSnip'},
     }
   },
+
   {
     'numToStr/Comment.nvim',
     opts = {
@@ -138,15 +147,19 @@ vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[F]ind [D]iagnostics' })
 vim.keymap.set('n', '<leader>fr', require('telescope.builtin').resume, { desc = '[F]Find [R]resume' })
 
-local lsp = require('lsp-zero').preset({})
+-- LSP configuration
+local lsp_zero = require('lsp-zero')
 
-lsp.on_attach(function(client, bufnr)
+lsp_zero.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
   -- to learn the available actions
-  lsp.default_keymaps({buffer = bufnr})
+  lsp_zero.default_keymaps({buffer = bufnr})
 end)
 
--- (Optional) Configure lua language server for neovim
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-
-lsp.setup()
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = {'clangd', 'lua_ls'},
+  handlers = {
+    lsp_zero.default_setup,
+  },
+})
