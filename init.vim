@@ -52,9 +52,6 @@ lua require('init')
 " Python check!
 "Plugin 'nvie/vim-flake8'
 
-" Autocompletion
-"Plugin 'Valloric/YouCompleteMe'
-
 " Taskwarrior interface
 "Plugin 'lmolina/vim-taskwarrior'
 
@@ -212,7 +209,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_rst_checkers=['sphinx']
 
 " Activate / deactivate syntastyc
-nnoremap <F3> :SyntasticToggleMode<CR>
+"nnoremap <F3> :SyntasticToggleMode<CR>
 
 "au BufNewFile,BufRead *.py
       "\ set tabstop=4
@@ -226,9 +223,6 @@ nnoremap <F3> :SyntasticToggleMode<CR>
 " ------------------------------------------
 " ------------------------------------------
 
-" Activate and deactivate paste mode
-nnoremap <F2> :set nopaste!<CR>
-
 " Copy and paste compatible with Windows
 set clipboard=unnamedplus
 
@@ -240,16 +234,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-
-" YouCompleteMe
-let g:ycm_python_interpreter_path = ''
-let g:ycm_python_sys_path = []
-let g:ycm_extra_conf_vim_data = [
-  \  'g:ycm_python_interpreter_path',
-  \  'g:ycm_python_sys_path'
-  \]
-"let g:ycm_global_ycm_extra_conf = '~/.ycm_global_extra_conf.py'
-let g:ycm_global_ycm_extra_conf = '~/ycm_global_extra_conf.py'
 
 " -----------------------
 "  vimtex configuration
