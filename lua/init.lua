@@ -53,7 +53,6 @@ require("lazy").setup({
     },
   },
 
-
   {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
   {'williamboman/mason.nvim'},
   {'williamboman/mason-lspconfig.nvim'},
@@ -135,7 +134,14 @@ require("lazy").setup({
     -- refer to the configuration section below
     --}
   },
-  { "folke/neodev.nvim", opts = {} }
+  { "folke/neodev.nvim", opts = {} },
+  {
+    "folke/persistence.nvim",
+    event = "BufReadPre", -- this will only start session saving when an actual file was opened
+    opts = {
+      -- add any custom options here
+    },
+  }
 })
 
 require("todo-comments").setup()
@@ -192,8 +198,18 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'clangd', 'lua_ls'},
+  ensure_installed = {'bashls', 'clangd', 'lua_ls', 'pyright'},
   handlers = {
     lsp_zero.default_setup,
   },
 })
+
+-- floke/persistence configuration
+-- restore the session for the current directory
+vim.api.nvim_set_keymap("n", "<leader>qs", [[<cmd>lua require("persistence").load()<cr>]], {})
+
+-- restore the last session
+vim.api.nvim_set_keymap("n", "<leader>ql", [[<cmd>lua require("persistence").load({ last = true })<cr>]], {})
+
+-- stop Persistence => session won't be saved on exit
+vim.api.nvim_set_keymap("n", "<leader>qd", [[<cmd>lua require("persistence").stop()<cr>]], {})
