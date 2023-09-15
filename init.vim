@@ -277,3 +277,9 @@ let g:vimtex_view_general_options_latexmk = '--unique'
 if empty(v:servername) && exists('*remote_startserver')
 	call remote_startserver('VIM')
 endif
+
+" Syntax for Jenkins files
+augroup set_jenkins_groovy
+au!
+au BufNewFile,BufRead *.jenkinsfile,*.Jenkinsfile,Jenkinsfile,jenkinsfile setf groovy
+augroup END
