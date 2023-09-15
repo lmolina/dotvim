@@ -123,7 +123,8 @@ require("lazy").setup({
     end
   },
   {
-    'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+    'nvim-telescope/telescope-fzf-native.nvim',
+    build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
   },
   {
     "folke/todo-comments.nvim",
@@ -134,7 +135,9 @@ require("lazy").setup({
     -- refer to the configuration section below
     --}
   },
-  { "folke/neodev.nvim", opts = {} },
+  {
+    "folke/neodev.nvim", opts = {}
+  },
   {
     "folke/persistence.nvim",
     event = "BufReadPre", -- this will only start session saving when an actual file was opened
