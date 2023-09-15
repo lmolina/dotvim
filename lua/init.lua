@@ -54,7 +54,9 @@ require("lazy").setup({
   },
 
   {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
+
   {'williamboman/mason.nvim'},
+
   {'williamboman/mason-lspconfig.nvim'},
 
   -- LSP Support
@@ -135,6 +137,15 @@ require("lazy").setup({
     --}
   },
   { "folke/neodev.nvim", opts = {} },
+
+  {
+    "folke/persistence.nvim",
+    event = "BufReadPre", -- this will only start session saving when an actual file was opened
+    opts = {
+      -- add any custom options here
+    },
+  },
+
   {
     "folke/persistence.nvim",
     event = "BufReadPre", -- this will only start session saving when an actual file was opened
