@@ -136,9 +136,10 @@ require("lazy").setup({
       types = true
     },
   },
-  {
-        "folke/which-key.nvim",
-  },
+  -- which-key is interfearing with LSP keys gd gD gr
+  --{
+        --"folke/which-key.nvim",
+  --},
 
 {
     "folke/persistence.nvim",
@@ -187,16 +188,17 @@ require("lazy").setup({
         opts = {},
       },
 
+      -- Conflict between which-key and LSP tools like gd, gD, gR.
       -- which key integration
-      {
-        "folke/which-key.nvim",
-        optional = true,
-        opts = {
-          defaults = {
-            ["<leader>d"] = { name = "+debug" },
-          },
-        },
-      },
+      --{
+        --"folke/which-key.nvim",
+        --optional = true,
+        --opts = {
+          --defaults = {
+            --["<leader>d"] = { name = "+debug" },
+          --},
+        --},
+      --},
 
       --{
         --"jay-babu/mason-nvim-dap.nvim",
