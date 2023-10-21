@@ -127,10 +127,25 @@ require("lazy").setup({
     --}
   },
   {
-    "folke/neodev.nvim", opts = {}
+    "folke/neodev.nvim",
+    opts = {},
+    library = {
+      --plugins = {
+        --"nvim-dap-ui"
+      --},
+      types = true
+    },
   },
   {
         "folke/which-key.nvim",
+  },
+
+{
+    "folke/persistence.nvim",
+    event = "BufReadPre", -- this will only start session saving when an actual file was opened
+    opts = {
+      -- add any custom options here
+    },
   },
 
  -- Debugger 
@@ -224,7 +239,11 @@ require("lazy").setup({
       { "<leader>ds", function() require("dap").session() end, desc = "Session" },
       { "<leader>dt", function() require("dap").terminate() end, desc = "Terminate" },
       { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
-    },
+      --vim.keymap.set('n', '<leader>dt', ":DapUiToggle<CR>", {noremap=true, desc='[D]AP [T]oggle' })
+      --vim.keymap.set('n', '<leader>db', ":DapToggleBreakpoint<CR>", {noremap=true, desc='[D]AP toggle [B]reakpint' })
+      --vim.keymap.set('n', '<leader>dc', ":DapContinue<CR>", {noremap=true, desc='[D]AP [C]ontinue' })
+      --vim.keymap.set('n', '<leader>dr', ":lua require('dapui').open({reset=true})<CR>", {noremap=true, desc='[D]AP [R]eset UI' })
+      },
 
     config = function()
       require("dapui").setup()
@@ -236,7 +255,10 @@ local dap = require("dap")
 dap.adapters.gdb = {
   type = "executable",
   command = "gdb",
-  args = { "-i", "dap" }
+  args = { "-i", "dap" },
+  cwd = "${workspaceFolder}",
+  stopOnEntry = false,
+  runInTerminal = false,
 }
 
 --local dap = require("dap")
