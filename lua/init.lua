@@ -76,7 +76,6 @@ require("lazy").setup({
   {
     'numToStr/Comment.nvim',
     opts = {
-      -- add any options here
     },
     lazy = false,
   },
@@ -88,9 +87,6 @@ require("lazy").setup({
   {
     'nvim-telescope/telescope.nvim', tag = '0.1.2',
     dependencies = { 'nvim-lua/plenary.nvim' }
-  },
-  {
-    'scrooloose/nerdcommenter'
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -286,6 +282,7 @@ dap.configurations.c = {
     },
 }
 
+require('Comment').setup()
 require("todo-comments").setup()
 require('orgmode').setup_ts_grammar()
 
