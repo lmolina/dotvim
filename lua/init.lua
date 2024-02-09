@@ -301,6 +301,9 @@ dap.configurations.c = {
     },
 }
 
+local ft = require('Comment.ft')
+ft.set('c', '/*%s*/')
+
 require('Comment').setup()
 require("todo-comments").setup()
 require('orgmode').setup_ts_grammar()
