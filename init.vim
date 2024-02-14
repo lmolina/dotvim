@@ -113,8 +113,8 @@ set colorcolumn=+0      " Higlight a vertical line at textwidth+0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "set t_Co=256
-" set background=dark
-set background=light
+set background=dark
+" set background=light
 colorscheme gruvbox
 "colorscheme solarized
 "colorscheme zenburn
