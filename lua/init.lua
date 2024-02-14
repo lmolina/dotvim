@@ -272,7 +272,8 @@ require("lazy").setup({
     end
   },
 
-  "nvim-neorg/neorg",
+  { 
+    "nvim-neorg/neorg",
   build = ":Neorg sync-parsers",
   -- tag = "*",
   dependencies = { "nvim-lua/plenary.nvim" },
@@ -291,6 +292,20 @@ require("lazy").setup({
     },
   }
   end,
+  },
+
+  {
+    'crusj/bookmarks.nvim',
+    keys = {
+        { "<tab><tab>", mode = { "n" } },
+    },
+    branch = 'main',
+    dependencies = { 'nvim-web-devicons' },
+    config = function()
+        require("bookmarks").setup()
+        require("telescope").load_extension("bookmarks")
+    end
+  }
 })
 
 local dap = require("dap")
