@@ -105,7 +105,7 @@ require("lazy").setup({
       local configs = require("nvim-treesitter.configs")
 
       configs.setup({
-        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "html", "org" },
+        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "html"},
         sync_install = false,
         highlight = { enable = true },
         indent = { enable = true },
@@ -114,23 +114,8 @@ require("lazy").setup({
   },
   {
     'nvim-orgmode/orgmode',
-    dependencies = {
-      { 'nvim-treesitter/nvim-treesitter', lazy = true },
-    },
     event = 'VeryLazy',
     config = function()
-      -- Load treesitter grammar for org
-      require('orgmode').setup_ts_grammar()
-
-      -- Setup treesitter
-      require('nvim-treesitter.configs').setup({
-        highlight = {
-          enable = true,
-          additional_vim_regex_highlighting = { 'org' },
-        },
-        ensure_installed = { 'org' },
-      })
-
       -- Setup orgmode
       require('orgmode').setup({
         org_agenda_files = '~/org/**/*',
@@ -182,6 +167,7 @@ require("lazy").setup({
 
       -- fancy UI for the debugger
       {
+        "nvim-neotest/nvim-nio",
         "rcarriga/nvim-dap-ui",
         -- stylua: ignore
         keys = {
@@ -275,7 +261,7 @@ require("lazy").setup({
     end
   },
 
-  { 
+  {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
     -- tag = "*",
@@ -357,7 +343,6 @@ ft.set('c', '/*%s*/')
 
 require('Comment').setup()
 require("todo-comments").setup()
-require('orgmode').setup_ts_grammar()
 
 -- Treesitter configuration
 --
@@ -370,7 +355,6 @@ require('nvim-treesitter.configs').setup {
     -- code block highlights that do not have ts grammar
     additional_vim_regex_highlighting = {'org'},
   },
-  ensure_installed = {'org'}, -- Or run :TSUpdate org
 }
 
 -- Enable telescope fzf native, if installed
