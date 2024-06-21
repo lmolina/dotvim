@@ -78,9 +78,6 @@ require("lazy").setup({
     dependencies = {
       {'L3MON4D3/LuaSnip'},
     },
-    sources = {
-      name = "neorg"
-    },
   },
 
   {
@@ -262,34 +259,6 @@ require("lazy").setup({
   },
 
   {
-    "nvim-neorg/neorg",
-    build = ":Neorg sync-parsers",
-    -- tag = "*",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("neorg").setup {
-        load = {
-          ["core.defaults"] = {}, -- Loads default behaviour
-          ["core.concealer"] = {}, -- Adds pretty icons to your documents
-          ["core.completion"] = { --  Engine completio
-            config = {
-              engine = "nvim-cmp",
-            },
-          },
-          ["core.dirman"] = { -- Manages Neorg workspaces
-            config = {
-              workspaces = {
-                work = "~/notes/work",
-                home = "~/notes/home",
-              },
-            },
-          },
-        },
-  }
-  end,
-  },
-
-  {
     'crusj/bookmarks.nvim',
     keys = {
         { "<tab><tab>", mode = { "n" } },
@@ -302,6 +271,9 @@ require("lazy").setup({
     end
   }
 })
+
+local org = require('orgmode')
+org.setup()
 
 local dap = require("dap")
 dap.adapters.gdb = {
