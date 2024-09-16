@@ -394,11 +394,20 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'bashls', 'clangd', 'lua_ls', 'pyright'},
+  ensure_installed = {'bashls', 'clangd', 'lua_ls', 'ruff'},
   handlers = {
     lsp_zero.default_setup,
   },
 })
+
+require('lspconfig').ruff.setup {
+  trace = 'messages',
+  init_options = {
+    settings = {
+      logLevel = 'debug',
+    }
+  }
+}
 
 -- floke/persistence configuration
 -- restore the session for the current directory
