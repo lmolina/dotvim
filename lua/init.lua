@@ -394,7 +394,7 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'bashls', 'clangd', 'lua_ls', 'pyright', 'ruff'},
+  ensure_installed = {'bashls', 'clangd', 'lua_ls', 'pyright', 'ruff', 'hls'},
   handlers = {
     lsp_zero.default_setup,
   },
