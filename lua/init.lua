@@ -394,7 +394,7 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'bashls', 'clangd', 'lua_ls', 'ruff'},
+  ensure_installed = {'bashls', 'clangd', 'lua_ls', 'pyright', 'ruff'},
   handlers = {
     lsp_zero.default_setup,
   },
@@ -406,6 +406,20 @@ require('lspconfig').ruff.setup {
     settings = {
       logLevel = 'debug',
     }
+  }
+}
+
+local lspconfig = require('lspconfig')
+lspconfig.pyright.setup {
+  settings = {
+    pyright = {
+      disableOrganizeImports = true, -- Using Ruff
+    },
+    python = {
+      analysis = {
+        ignore = { '*' }, -- Using Ruff
+      },
+    },
   }
 }
 
