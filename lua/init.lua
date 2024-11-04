@@ -300,6 +300,15 @@ require("lazy").setup({
     vim.keymap.set('n', '<leader>l', ':TestLast<CR>'),
     vim.keymap.set('n', '<leader>g', ':TestVisit<CR>'),
     vim.cmd("let test#strategy = 'vimux'"),
+  },
+
+  {
+    "lervag/vimtex",
+    lazy = false,     -- we don't want to lazy load VimTeX
+    tag = "v2.15",
+    init = function()
+      vim.g.vimtex_view_method = "zathura"
+    end
   }
 })
 

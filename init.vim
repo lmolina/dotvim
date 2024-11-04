@@ -268,7 +268,7 @@ au TabLeave * let g:lasttab = tabpagenr()
 
 " Use Okular in vimtex as PDF viewer
 " https://github.com/lervag/vimtex/blob/1782e479a0c6a716af3a92d5ed85b65ecfad3dc0/doc/vimtex.txt
-let g:vimtex_view_general_viewer = 'evince'
+" let g:vimtex_view_general_viewer = 'evince'
 "let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
 "let g:vimtex_view_general_options_latexmk = '--unique'
 
