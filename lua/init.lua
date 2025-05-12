@@ -86,13 +86,28 @@ require("lazy").setup({
     },
   },
 
-  {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
-  {'williamboman/mason.nvim'},
-  {'williamboman/mason-lspconfig.nvim'},
+  {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v4.x'
+  },
+
+  {
+    'mason-org/mason.nvim',
+    tag='v2.0.0'
+  },
+
+  {
+  -- mason-lspconfig v2.0.0 requires neovim 0.11 or higher because of the
+  -- integration with LSP.
+    'mason-org/mason-lspconfig.nvim',
+    tag='v2.0.0-rc.1'
+  },
 
   -- LSP Support
   {
     'neovim/nvim-lspconfig',
+    tag ='v2.1.0',
+    pin = true,
     dependencies = {
       {'hrsh7th/cmp-nvim-lsp'},
     },
