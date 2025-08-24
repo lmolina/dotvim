@@ -20,19 +20,15 @@ vim.opt.rtp:prepend(lazypath)
 
 -- require("lazy").setup(plugins, opts)
 require("lazy").setup({
-  'github/copilot.vim',
-
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     dependencies = {
-      { "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
-      { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
+      { "nvim-lua/plenary.nvim", branch = "master" },
     },
-    build = "make tiktoken", -- Only on MacOS or Linux
+    build = "make tiktoken",
     opts = {
       -- See Configuration section for options
     },
-    -- See Commands section for default commands if you want to lazy load on them
   },
 
   -- Git related
@@ -151,7 +147,7 @@ require("lazy").setup({
       local configs = require("nvim-treesitter.configs")
 
       configs.setup({
-        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "html"},
+        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "html", "markdown", "markdown_inline", "python", "bash", "cpp" },
         sync_install = false,
         highlight = { enable = true },
         indent = { enable = true },
