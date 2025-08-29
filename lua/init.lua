@@ -20,16 +20,16 @@ vim.opt.rtp:prepend(lazypath)
 
 -- require("lazy").setup(plugins, opts)
 require("lazy").setup({
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    dependencies = {
-      { "nvim-lua/plenary.nvim", branch = "master" },
-    },
-    build = "make tiktoken",
-    opts = {
-      -- See Configuration section for options
-    },
-  },
+  -- {
+  --   "CopilotC-Nvim/CopilotChat.nvim",
+  --   dependencies = {
+  --     { "nvim-lua/plenary.nvim", branch = "master" },
+  --   },
+  --   build = "make tiktoken",
+  --   opts = {
+  --     -- See Configuration section for options
+  --   },
+  -- },
 
   -- Git related
   'tpope/vim-fugitive',
@@ -110,18 +110,7 @@ require("lazy").setup({
   },
 
   {
-	"L3MON4D3/LuaSnip",
-	-- follow latest release.
-	version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-	-- install jsregexp (optional!).
-	build = "make install_jsregexp"
-  },
-
-  {
     'hrsh7th/nvim-cmp',
-    dependencies = {
-      {'L3MON4D3/LuaSnip'},
-    },
   },
 
   {
